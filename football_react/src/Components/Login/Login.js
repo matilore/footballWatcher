@@ -12,12 +12,13 @@ class Login extends React.Component {
       password: this.refs.password.value
     }
 
-
     axios.post('http://localhost:4000/login',
     user)
     .then(function (response) {
-      console.log(response);
-    })
+      if (response.data.token != undefined) {
+        this.props.history.push('/dashboard')
+      }
+    }.bind(this))
     .catch(function (error) {
       console.log(error);
     });
@@ -25,6 +26,7 @@ class Login extends React.Component {
 
 
   render () {
+    console.log("rendering")
     return (
       <div>
         <label>email</label><input ref="email" type="text"/><br/>

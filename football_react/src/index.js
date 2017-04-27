@@ -4,8 +4,9 @@ import App from './App';
 import Signup from './Components/Signup/Signup'
 import Login from './Components/Login/Login'
 import './index.css';
+import Routes from './routes'
 
 ReactDOM.render(
-  <Login />,
+  <Routes />,
   document.getElementById('root')
 );

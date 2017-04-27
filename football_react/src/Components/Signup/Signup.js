@@ -20,11 +20,14 @@ class Signup extends React.Component {
     }
 
 
+
     axios.post('http://localhost:4000/signup',
     user)
     .then(function (response) {
-      console.log(response);
-    })
+      if (response.data.token != undefined) {
+        this.props.history.push('/team')
+      }
+    }.bind(this))
     .catch(function (error) {
       console.log(error);
     });
