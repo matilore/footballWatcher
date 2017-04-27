@@ -15,258 +15,258 @@ const league = [
     teams: [
       {
         name: 'Alavés',
-        teamLogo: '',
+        teamLogo: '/images/spain/alaves.svg',
       },
       {
         name: 'Athletic de Bilbao',
-        teamLogo: '',
+        teamLogo: '/images/spain/atletico-bilbao.svg',
       },
       {
         name: 'Atlético de Madrid',
-        teamLogo: '',
+        teamLogo: '/images/spain/atletico-madrid.svg',
       },
       {
         name: 'Barcelona',
-        teamLogo: '',
+        teamLogo: '/images/spain/barcelona.svg',
       },
       {
         name: 'Celta de Vigo',
-        teamLogo: '',
+        teamLogo: '/images/spain/celta.svg',
       },
       {
         name: 'Deportivo de la Coruña',
-        teamLogo: '',
+        teamLogo: '/images/spain/deportivo-coruna.svg',
       },
       {
         name: 'Eibar',
-        teamLogo: '',
+        teamLogo: '/images/spain/eibar.svg',
       },
       {
         name: 'Espanyol',
-        teamLogo: '',
+        teamLogo: '/images/spain/espanyol.svg',
       },
       {
         name: 'Granada',
-        teamLogo: '',
+        teamLogo: '/images/spain/granada.svg',
       },
       {
         name: 'Las Palmas',
-        teamLogo: '',
+        teamLogo: '/images/spain/palmas.svg',
       },
       {
         name: 'Leganés',
-        teamLogo: '',
+        teamLogo: '/images/spain/leganes.png',
       },
       {
         name: 'Málaga',
-        teamLogo: '',
+        teamLogo: '/images/spain/malaga.svg',
       },
       {
         name: 'Osasuna',
-        teamLogo: '',
+        teamLogo: '/images/spain/osasuna.svg',
       },
       {
         name: 'Real Betis',
-        teamLogo: '',
+        teamLogo: '/images/spain/betis.svg',
       },
       {
         name: 'Real Madrid',
-        teamLogo: '',
+        teamLogo: '/images/spain/real-madrid.svg',
       },
       {
         name: 'Real Sociedad',
-        teamLogo: '',
+        teamLogo: '/images/spain/real-sociedad.svg',
       },
       {
         name: 'Sevilla',
-        teamLogo: '',
+        teamLogo: '/images/spain/sevilla.png',
       },
       {
         name: 'Sporting de Gijón',
-        teamLogo: '',
+        teamLogo: '/images/spain/sporting-gijon.svg',
       },
       {
         name: 'Valencia',
-        teamLogo: '',
+        teamLogo: '/images/spain/valencia.svg',
       },
       {
         name: 'Villarreal',
-        teamLogo: '',
+        teamLogo: '/images/spain/villarreal.svg',
       }
     ]
   },
   {
     name: 'Premier League',
     leagueLogo: '',
-    country: 'UK',
+    country: 'England',
     teams: [
       {
         name: 'Arsenal',
-        teamLogo: '',
+        teamLogo: '/images/england/arsenal.png',
       },
       {
         name: 'Bournemouth',
-        teamLogo: '',
+        teamLogo: '/images/england/bournemouth.png',
       },
       {
         name: 'Burnley',
-        teamLogo: '',
+        teamLogo: '/images/england/burnley.png',
       },
       {
         name: 'Chelsea',
-        teamLogo: '',
+        teamLogo: '/images/england/chelsea.png',
       },
       {
         name: 'Crystal Palace',
-        teamLogo: '',
+        teamLogo: '/images/england/cristal-palace',
       },
       {
         name: 'Everton',
-        teamLogo: '',
+        teamLogo: '/images/england/everton.png',
       },
       {
         name: 'Hull City',
-        teamLogo: '',
+        teamLogo: '/images/england/hull-city.png',
       },
       {
         name: 'Leicester',
-        teamLogo: '',
+        teamLogo: '/images/england/leicester.png',
       },
       {
         name: 'Liverpool',
-        teamLogo: '',
+        teamLogo: '/images/england/liverpool.png',
       },
       {
         name: 'Manchester City',
-        teamLogo: '',
+        teamLogo: '/images/england/manchester-city.png',
       },
       {
         name: 'Manchester United',
-        teamLogo: '',
+        teamLogo: '/images/england/manchester-united.png',
       },
       {
         name: 'Middlesbrough',
-        teamLogo: '',
+        teamLogo: '/images/england/middlesbrough.png',
       },
       {
         name: 'Southampton',
-        teamLogo: '',
+        teamLogo: '/images/england/southampton.png',
       },
       {
         name: 'Stoke City',
-        teamLogo: '',
+        teamLogo: '/images/england/stoke-city.png',
       },
       {
         name: 'Sunderland',
-        teamLogo: '',
+        teamLogo: '/images/england/sunderland.png',
       },
       {
         name: 'Swansea City',
-        teamLogo: '',
+        teamLogo: '/images/england/swansea.svg',
       },
       {
         name: 'Tottenham',
-        teamLogo: '',
+        teamLogo: '/images/england/tottenham.svg',
       },
       {
         name: 'Watford',
-        teamLogo: '',
+        teamLogo: '/images/england/watford.png',
       },
       {
         name: 'West Bromwich Albion',
-        teamLogo: '',
+        teamLogo: '/images/england/west-bromwich.svg',
       },
       {
         name: 'West Ham',
-        teamLogo: '',
+        teamLogo: '/images/england/west-ham.svg',
       }
     ]
   },
   {
     name: 'Serie A',
     leagueLogo: '',
-    country: 'Spain',
+    country: 'Italy',
     teams: [
       {
         name: 'Atalanta',
-        teamLogo: '',
+        teamLogo: '/images/italy/atalanta.svg',
       },
       {
         name: 'Bolonia',
-        teamLogo: '',
+        teamLogo: '/images/italy/bologna.svg',
       },
       {
         name: 'Cagliari',
-        teamLogo: '',
+        teamLogo: '/images/italy/cagliari.svg',
       },
       {
         name: 'Chievo',
-        teamLogo: '',
+        teamLogo: '/images/italy/chievo-verona.svg',
       },
       {
         name: 'Crotone',
-        teamLogo: '',
+        teamLogo: '/images/italy/crotone.svg',
       },
       {
         name: 'Empoli',
-        teamLogo: '',
+        teamLogo: '/images/italy/empoli.svg',
       },
       {
         name: 'Fiorentina',
-        teamLogo: '',
+        teamLogo: '/images/italy/fiorentina.png',
       },
       {
         name: 'Genoa',
-        teamLogo: '',
+        teamLogo: '/images/italy/genoa.svg',
       },
       {
         name: 'Inter Milan',
-        teamLogo: '',
+        teamLogo: '/images/italy/inter-milano.png',
       },
       {
         name: 'Juventus',
-        teamLogo: '',
+        teamLogo: '/images/italy/juventus.svg',
       },
       {
         name: 'Lazio',
-        teamLogo: '',
+        teamLogo: '/images/italy/lazio.png',
       },
       {
         name: 'AC Milan',
-        teamLogo: '',
+        teamLogo: '/images/italy/milano.svg',
       },
       {
         name: 'Napoli',
-        teamLogo: '',
+        teamLogo: '/images/italy/napoli.svg',
       },
       {
         name: 'Palermo',
-        teamLogo: '',
+        teamLogo: '/images/italy/palermo.svg',
       },
       {
         name: 'Pescara',
-        teamLogo: '',
+        teamLogo: '/images/italy/pescara.svg',
       },
       {
         name: 'Roma',
-        teamLogo: '',
+        teamLogo: '/images/italy/roma.svg',
       },
       {
         name: 'Sampdoria',
-        teamLogo: '',
+        teamLogo: '/images/italy/sampdoria.svg',
       },
       {
         name: 'Sassuolo',
-        teamLogo: '',
+        teamLogo: '/images/italy/sassuolo.svg',
       },
       {
         name: 'Torino',
-        teamLogo: '',
+        teamLogo: '/images/italy/torino.svg',
       },
       {
         name: 'Udinese',
-        teamLogo: '',
-      },
+        teamLogo: '/images/italy/udinese.svg',
+      }
     ]
   },
   {
@@ -275,76 +275,76 @@ const league = [
     country: 'Germany',
     teams: [
       {
-        name: 'Augsburgo',
-        teamLogo: '',
+        name: 'Augsburg',
+        teamLogo: '/images/germany/augsburg.svg',
       },
       {
         name: 'Borussia Dortmund',
-        teamLogo: '',
+        teamLogo: '/images/germany/borussia-dortmund.svg',
       },
       {
         name: 'Borussia Mönchengladbach',
-        teamLogo: '',
-      },
-      {
-        name: 'Bayern München',
-        teamLogo: '',
-      },
-      {
-        name: 'Köln',
-        teamLogo: '',
-      },
-      {
-        name: 'Darmstadt 98',
-        teamLogo: '',
-      },
-      {
-        name: 'Eintracht',
-        teamLogo: '',
-      },
-      {
-        name: 'Freiburg',
-        teamLogo: '',
-      },
-      {
-        name: 'Hamburguer SV',
-        teamLogo: '',
-      },
-      {
-        name: 'Hertha Berlin',
-        teamLogo: '',
-      },
-      {
-        name: 'Hoffenheim',
-        teamLogo: '',
-      },
-      {
-        name: 'Ingolstadt 04',
-        teamLogo: '',
+        teamLogo: '/images/germany/borussia-monchengladbach.svg',
       },
       {
         name: 'Bayer Leverkusen',
-        teamLogo: '',
+        teamLogo: '/images/germany/bayer-leverkusen.png',
+      },
+      {
+        name: 'Bayern München',
+        teamLogo: '/images/germany/bayern-munchen',
+      },
+      {
+        name: 'Darmstadt 98',
+        teamLogo: '/images/germany/darmstadt.svg',
+      },
+      {
+        name: 'Eintracht',
+        teamLogo: '/images/germany/eintracht.svg',
+      },
+      {
+        name: 'Freiburg',
+        teamLogo: '/images/germany/freiburg.svg',
+      },
+      {
+        name: 'Hamburguer SV',
+        teamLogo: '/images/germany/hamburg.svg',
+      },
+      {
+        name: 'Hertha Berlin',
+        teamLogo: '/images/germany/hertha-berlin.svg',
+      },
+      {
+        name: 'Hoffenheim',
+        teamLogo: '/images/germany/hoffenheim.png',
+      },
+      {
+        name: 'Ingolstadt 04',
+        teamLogo: '/images/germany/ingolstadt.svg',
+      },
+      {
+        name: 'Köln',
+        teamLogo: '/images/germany/koln.png',
       },
       {
         name: 'Mainz 05',
-        teamLogo: '',
+        teamLogo: '/images/germany/mainz.svg',
       },
       {
         name: 'RB Leipzig',
-        teamLogo: '',
+        teamLogo: '/images/germany/leipzig.svg',
       },
       {
         name: 'Schalke 04',
-        teamLogo: '',
+        teamLogo: '/images/germany/schalke.png',
       },
       {
         name: 'Werder Bremen',
-        teamLogo: '',
+        teamLogo: '/images/germany/werder-bremen.svg',
       },
       {
         name: 'Wolfsburgo',
-        teamLogo: '',
+        teamLogo: '/images/germany/wolfsburg.svg',
       }
     ]
   },
@@ -355,75 +355,75 @@ const league = [
     teams: [
       {
         name: 'Ajax',
-        teamLogo: '',
+        teamLogo: '/images/holland/ajax.svg',
       },
       {
         name: 'AZ Alkmaar',
-        teamLogo: '',
+        teamLogo: '/images/holland/az-alkmar.png',
       },
       {
         name: 'Den Haag',
-        teamLogo: '',
+        teamLogo: '/images/holland/den-haag.svg',
       },
       {
         name: 'Excelsior',
-        teamLogo: '',
+        teamLogo: '/images/holland/excelsior.svg',
       },
       {
         name: 'Feyenoord',
-        teamLogo: '',
+        teamLogo: '/images/holland/feyenoord.png',
       },
       {
         name: 'G.A.Eagles',
-        teamLogo: '',
+        teamLogo: '/images/holland/deventer.svg',
       },
       {
         name: 'Groningen',
-        teamLogo: '',
+        teamLogo: '/images/holland/groningen.svg',
       },
       {
         name: 'Heerenveen',
-        teamLogo: '',
+        teamLogo: '/images/holland/heerenveen.svg',
       },
       {
         name: 'Heracles',
-        teamLogo: '',
+        teamLogo: '/images/holland/heracles.svg',
       },
       {
         name: 'Nijmegen',
-        teamLogo: '',
+        teamLogo: '/images/holland/nijmegen.svg',
       },
       {
         name: 'PSV Eindhoven',
-        teamLogo: '',
+        teamLogo: '/images/holland/psv-eindhoven.svg',
       },
       {
         name: 'Roda',
-        teamLogo: '',
+        teamLogo: '/images/holland/roda.svg',
       },
       {
         name: 'Sparta Rotterdam',
-        teamLogo: '',
+        teamLogo: '/images/holland/rotterdam.png',
       },
       {
         name: 'Twente',
-        teamLogo: '',
+        teamLogo: '/images/holland/twente.svg',
       },
       {
         name: 'Utrecht',
-        teamLogo: '',
+        teamLogo: '/images/holland/utrecht.svg',
       },
       {
         name: 'Vitesse',
-        teamLogo: '',
+        teamLogo: '/images/holland/vitesse.svg',
       },
       {
         name: 'Willem II',
-        teamLogo: '',
+        teamLogo: '/images/holland/willem-2.svg',
       },
       {
         name: 'Zwolle',
-        teamLogo: '',
+        teamLogo: '/images/holland/zwolle.svg',
       }
     ]
   }
