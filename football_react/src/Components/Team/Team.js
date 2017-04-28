@@ -7,27 +7,35 @@ class Team extends React.Component {
   constructor(){
     super()
     this.state = {leagues:undefined, selectedLeague: undefined}
+    this.selectLeague = this.selectLeague.bind(this)
   }
 
-  findLeague(){
 
+  selectLeague(selectedLeague){
+    this.setState({selectedLeague})
   }
+
+
 
 
   componentDidMount(){
     axios.get("http://localhost:4000/leagues")
     .then(function(response){
-      console.log(response)
-      console.log(this)
-      this.setState({leagues: response.data.leagues})
+      this.setState({leagues: response.data.leagues, selectedLeague: response.data.leagues[0].name})
     }.bind(this))
     .catch(function(error){console.log(error)})
   }
 
 
   render () {
+    console.log(this.state)
     return (
-      <League leagues={this.state.leagues} findLeague={this.findLeague}/>
+      <div>
+      <League leagues={this.state.leagues} selectLeague={this.selectLeague}/>
+      {this.state.selectedLeague &&
+        <TeamUI />
+      }
+      </div>
     )
 
   }
@@ -43,23 +51,26 @@ class League extends React.Component {
   }
 
 
+
+
   increase(){
-    this.setState({counter: (this.state.counter+1) % this.props.leagues.length})
+    this.setState({counter: (this.state.counter+1) % this.props.leagues.length}, () => this.props.selectLeague(this.props.leagues[this.state.counter].name) )
+
   }
 
   decrease(){
-    // console.log(Math.abs((this.state.counter-1) % this.props.leagues.length))
-    this.setState({counter: (((this.state.counter + this.props.leagues.length) -1) % this.props.leagues.length)})
+    this.setState({counter: (((this.state.counter + this.props.leagues.length) -1) % this.props.leagues.length)},() => this.props.selectLeague(this.props.leagues[this.state.counter].name))
   }
 
   render () {
+
     var leagues = this.props.leagues
 
     if (leagues != undefined) {
       return (
         <div>
           <button value="less" onClick={this.decrease.bind(this)}> &lt; </button>
-          <h2 onClick={this.props.findLeague}>{leagues[this.state.counter].name}</h2>
+          <h2 ref="league" onClick={this.props.findLeague}>{leagues[this.state.counter].name}</h2>
           <button value="plus" onClick={this.increase.bind(this)}>></button>
         </div>
       )
@@ -73,7 +84,7 @@ class League extends React.Component {
 
 class TeamUI extends React.Component {
   render () {
-
+    return <h3>TEAMSS</h3>
   }
 }
 
