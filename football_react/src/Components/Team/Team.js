@@ -1,13 +1,16 @@
 import React, { PropTypes } from 'react'
 import axios from 'axios'
+import styled from "styled-components"
 
 
 class Team extends React.Component {
 
   constructor(){
     super()
-    this.state = {leagues:undefined, selectedLeague: undefined}
+    this.state = {leagues:undefined, selectedLeague: undefined, selectedTeam:undefined}
     this.selectLeague = this.selectLeague.bind(this)
+    this.selectTeam = this.selectTeam.bind(this)
+
   }
 
 
@@ -15,13 +18,15 @@ class Team extends React.Component {
     this.setState({selectedLeague})
   }
 
-
+  selectTeam(selectedTeam){
+    this.setState({selectedTeam})
+  }
 
 
   componentDidMount(){
     axios.get("http://localhost:4000/leagues")
     .then(function(response){
-      this.setState({leagues: response.data.leagues, selectedLeague: response.data.leagues[0].name})
+      this.setState({leagues: response.data.leagues, selectedLeague: response.data.leagues[0]})
     }.bind(this))
     .catch(function(error){console.log(error)})
   }
@@ -33,7 +38,7 @@ class Team extends React.Component {
       <div>
       <League leagues={this.state.leagues} selectLeague={this.selectLeague}/>
       {this.state.selectedLeague &&
-        <TeamUI />
+        <TeamUI selectedLeague={this.state.selectedLeague} selectTeam={this.selectTeam}/>
       }
       </div>
     )
@@ -42,8 +47,7 @@ class Team extends React.Component {
 }
 
 
-
-class League extends React.Component {
+class Selector extends React.Component {
 
   constructor(){
     super()
@@ -52,15 +56,21 @@ class League extends React.Component {
 
 
 
-
-  increase(){
-    this.setState({counter: (this.state.counter+1) % this.props.leagues.length}, () => this.props.selectLeague(this.props.leagues[this.state.counter].name) )
+  increase(prop, callback){
+    this.setState({counter: (this.state.counter+1) % prop.length}, () => callback(prop[this.state.counter]) )
 
   }
 
-  decrease(){
-    this.setState({counter: (((this.state.counter + this.props.leagues.length) -1) % this.props.leagues.length)},() => this.props.selectLeague(this.props.leagues[this.state.counter].name))
+  decrease(prop, callback){
+    this.setState({counter: (((this.state.counter + prop.length) -1) % prop.length)},() => callback(prop[this.state.counter]))
   }
+
+}
+
+
+
+class League extends Selector {
+
 
   render () {
 
@@ -69,9 +79,9 @@ class League extends React.Component {
     if (leagues != undefined) {
       return (
         <div>
-          <button value="less" onClick={this.decrease.bind(this)}> &lt; </button>
+          <button value="less" onClick={this.decrease.bind(this, this.props.leagues, this.props.selectLeague)}> &lt; </button>
           <h2 ref="league" onClick={this.props.findLeague}>{leagues[this.state.counter].name}</h2>
-          <button value="plus" onClick={this.increase.bind(this)}>></button>
+          <button value="plus" onClick={this.increase.bind(this, this.props.leagues, this.props.selectLeague)}>></button>
         </div>
       )
     } else {
@@ -81,10 +91,20 @@ class League extends React.Component {
   }
 }
 
+const URL = "http://localhost:4000"
 
-class TeamUI extends React.Component {
+class TeamUI extends Selector {
+
+
   render () {
-    return <h3>TEAMSS</h3>
+    console.log(this.props)
+    return (
+      <div>
+        <button value="less" onClick={this.decrease.bind(this, this.props.selectedLeague.teams, this.props.selectTeam)}> &lt; </button>
+          <img style={{width: "200px", height: "200px"}} src={URL + this.props.selectedLeague.teams[this.state.counter].teamLogo} />
+        <button value="plus" onClick={this.increase.bind(this, this.props.selectedLeague.teams, this.props.selectTeam)}>></button>
+      </div>
+    )
   }
 }
 
