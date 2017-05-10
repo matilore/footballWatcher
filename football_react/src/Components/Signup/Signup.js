@@ -25,6 +25,7 @@ class Signup extends React.Component {
     user)
     .then(function (response) {
       if (response.data.token != undefined) {
+        localStorage.setItem('token', response.data.token)
         this.props.history.push('/team')
       }
     }.bind(this))

@@ -18,8 +18,7 @@ export function fetchLeagues() {
     // to post the data
     axios.get("http://localhost:4000/leagues")
     .then(function(response){
-      console.log(response)
-      dispatch(sendLeagues(response));
+      dispatch(sendLeagues(response.data.leagues));
     }.bind(this))
     .catch(function(error){console.log(error)})
   // what you return here gets returned by the dispatch function that used
@@ -32,5 +31,33 @@ function sendLeagues(leagues){
   return {
     type: "FETCH_LEAGUES",
     payload: leagues
+  }
+}
+
+export function increaseLeague(leaguesLength){
+  return {
+    type: "INCREASE_LEAGUE",
+    payload: leaguesLength
+  }
+}
+
+export function decreaseLeague(leaguesLength){
+  return {
+    type: "DECREASE_LEAGUE",
+    payload: leaguesLength
+  }
+}
+
+export function increaseTeam(teamsLength){
+  return {
+    type: "INCREASE_TEAM",
+    payload: teamsLength
+  }
+}
+
+export function decreaseTeam(teamsLength){
+  return {
+    type: "DECREASE_TEAM",
+    payload: teamsLength
   }
 }

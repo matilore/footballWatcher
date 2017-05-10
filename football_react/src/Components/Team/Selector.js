@@ -14,16 +14,20 @@ class Selector extends React.Component {
     this.props.fetchLeagues()
   }
 
+  leagueReady(){
+    if (Object.keys(this.props.leagues).length != 0) {
+      return <h2 ref="league">{this.props.leagues[this.props.selector.leagueCounter.value].name}</h2>
+    }
+  }
 
   render () {
     return(
       <div>
-        <button> &lt; </button>
-        <h2 ref="league">{this.props.leagues[this.state.leagueCounter].name}</h2>
-        <button>></button>
+        <button onClick={()=> this.props.decreaseLeague(this.props.leagues.length)}> &lt; </button>
+        {this.leagueReady()}
+        <button onClick={()=> this.props.increaseLeague(this.props.leagues.length)}>></button>
         <TeamSelector />
       </div>
-
     )
   }
 }

@@ -5,7 +5,7 @@ const userSchema = new Schema({
   email: String,
   username: String,
   password: String,
-  teams: [Schema.Types.ObjectId]
+  teams: [String]
 }, {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
 });
