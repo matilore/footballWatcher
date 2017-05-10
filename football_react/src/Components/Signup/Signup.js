@@ -1,11 +1,11 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import axios from 'axios'
 
 class Signup extends React.Component {
 
 
   checkPass(event){
-    if(this.refs.password.value != event.target.value){
+    if(this.refs.password.value !== event.target.value){
       event.target.style.outlineColor = "red"
     } else {
       event.target.style.outlineColor = "green"
@@ -24,7 +24,7 @@ class Signup extends React.Component {
     axios.post('http://localhost:4000/signup',
     user)
     .then(function (response) {
-      if (response.data.token != undefined) {
+      if (response.data.token !== undefined) {
         localStorage.setItem('token', response.data.token)
         this.props.history.push('/team')
       }

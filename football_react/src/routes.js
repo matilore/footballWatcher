@@ -2,7 +2,6 @@ import React from 'react'
 import {
   BrowserRouter as Router,
   Route,
-  Link
 } from 'react-router-dom'
 
 
@@ -20,7 +19,7 @@ import Dashboard from './Components/Dashboard/Dashboard'
 
 const Routes = () => (
   <Provider store={store}>
-    <Router>
+    <Router history={history}>
       <div>
         <Route path="/signup" component={Signup}/>
         <Route path="/dashboard" component={Dashboard}/>

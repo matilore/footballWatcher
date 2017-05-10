@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import axios from 'axios'
 
 class Login extends React.Component {
@@ -15,7 +15,8 @@ class Login extends React.Component {
     axios.post('http://localhost:4000/login',
     user)
     .then(function (response) {
-      if (response.data.token != undefined) {
+      if (response.data.token !== undefined) {
+        localStorage.setItem('token', response.data.token)
         this.props.history.push('/dashboard')
       }
     }.bind(this))

@@ -1,6 +1,5 @@
 import React from 'react'
-import axios from 'axios'
-import styled from "styled-components"
+// import styled from "styled-components"
 
 import * as actionCreators from '../../actions/index'
 import { connect } from 'react-redux'
@@ -15,7 +14,7 @@ class Selector extends React.Component {
   }
 
   leagueReady(){
-    if (Object.keys(this.props.leagues).length != 0) {
+    if (Object.keys(this.props.leagues).length !== 0) {
       return <h2 ref="league">{this.props.leagues[this.props.selector.leagueCounter.value].name}</h2>
     }
   }

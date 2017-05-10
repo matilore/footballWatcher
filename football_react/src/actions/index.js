@@ -19,7 +19,7 @@ export function fetchLeagues() {
     axios.get("http://localhost:4000/leagues")
     .then(function(response){
       dispatch(sendLeagues(response.data.leagues));
-    }.bind(this))
+    })
     .catch(function(error){console.log(error)})
   // what you return here gets returned by the dispatch function that used
   // this action creator

@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import styled from "styled-components"
+// import styled from "styled-components"
 
 
 import * as actionCreators from '../../actions/index'
@@ -15,9 +15,10 @@ class TeamSelector extends React.Component {
 
 
   teamOfSelectedLeague(){
-    if (Object.keys(this.props.leagues).length != 0) {
+    if (Object.keys(this.props.leagues).length !== 0) {
       this.selectedLeague = this.props.leagues[this.props.selector.leagueCounter.value].teams
-      return <img style={{width: "200px", height: "200px"}} src={URL + this.props.leagues[this.props.selector.leagueCounter.value].teams[this.props.selector.teamCounter.value].teamLogo} />
+      let currentTeamObject = this.props.leagues[this.props.selector.leagueCounter.value].teams[this.props.selector.teamCounter.value]
+      return <img style={{width: "200px", height: "200px"}} alt={currentTeamObject.name} src={URL + currentTeamObject.teamLogo} />
     }
   }
 
@@ -29,8 +30,7 @@ class TeamSelector extends React.Component {
 
     axios.post("http://localhost:4000/users/addteam", data)
     .then(function(response){
-      console.log(response)
-    }.bind(this))
+    })
     .catch(function(error){console.log(error)})
   }
 
