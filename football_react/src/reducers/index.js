@@ -62,7 +62,16 @@ function selector(state = initialState, action){
 }
 
 
+function user(state = {}, action){
+  console.log(state)
+  if (action.type === "ADD_USER") {
+      return action.payload
+  } else {
+    return state
+  }
+
+}
 
 
 
-export const rootReducer = combineReducers({selector, leagues, routing})
+export const rootReducer = combineReducers({selector, user, leagues, routing})

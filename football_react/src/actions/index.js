@@ -61,3 +61,10 @@ export function decreaseTeam(teamsLength){
     payload: teamsLength
   }
 }
+
+export function addUserToDashboard(user){
+  return {
+    type: "ADD_USER",
+    payload: user
+  }
+}
