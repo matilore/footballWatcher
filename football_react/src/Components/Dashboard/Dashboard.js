@@ -16,6 +16,7 @@ class Dashboard extends React.Component {
     axios.post('http://localhost:4000', {token})
     .then(function (response) {
       let user = response.data.user
+      console.log(user)
       this.props.addUserToDashboard(user)
     }.bind(this))
     .catch(function (error) {

@@ -15,6 +15,7 @@ router.post('/', function(req, res, next) {
     if (err) {
       throw err
     }
+    console.log(user)
     res.json({ user });
   })
 

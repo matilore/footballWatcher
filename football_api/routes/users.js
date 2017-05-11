@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/addteam', function(req, res, next) {
-
+  console.log(req.body.team)
   let userId = jwt.verify(req.body.user_token, "ironhack").id;
   User.findByIdAndUpdate({_id: userId}, {$push: {teams: req.body.team}}, (err, user) => {
     if (err) {

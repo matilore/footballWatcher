@@ -33,8 +33,14 @@ class Selector extends React.Component {
   submit(){
     let data = {
       user_token: localStorage.getItem('token'),
-      team: this.props.leagues[this.props.selector.leagueCounter.value].teams[this.props.selector.teamCounter.value].name
+      team: {
+            name: this.props.leagues[this.props.selector.leagueCounter.value].teams[this.props.selector.teamCounter.value].name,
+            logo: this.props.leagues[this.props.selector.leagueCounter.value].teams[this.props.selector.teamCounter.value].teamLogo,
+            league: this.props.leagues[this.props.selector.leagueCounter.value].name,
+            leagueId: this.props.leagues[this.props.selector.leagueCounter.value].id
+          }
     }
+
     axios.post("http://localhost:4000/users/addteam", data)
     .then(function(response){
       this.props.history.push('/dashboard')
