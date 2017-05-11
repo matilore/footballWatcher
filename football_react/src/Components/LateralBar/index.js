@@ -11,7 +11,7 @@ class LateralBar extends React.Component {
   render () {
     return (
       <Wrapper>
-          
+
       </Wrapper>
     )
   }
