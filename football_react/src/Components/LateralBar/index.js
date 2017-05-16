@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import ReactDOM from 'react-dom'
 
 
 import * as actionCreators from '../../actions/index'
@@ -17,13 +18,22 @@ class LateralBar extends React.Component {
 
   }
 
+  clickForRemove(event) {
+    setTimeout(()=>{
+      confirm('are you sure you wanna remove this team')
+    }, 100)
+    event.target.className += ' infinite tada'
+    event.target.style.filter += "alpha(opacity=50)";
+    event.target.style.opacity += "0.5";
+  }
+
   showTeamsLogo(){
     if (this.props.user.teams) {
       return this.props.user.teams.map((team) =>{
         return (
           <Team key={team.name}>
-            <img src={URL + team.logo} alt={team.name} key={team.name} style={{height: '80%'}}/>
-          </Team>
+            <img className='animated' onDoubleClick={this.clickForRemove} src={URL + team.logo} alt={team.name} key={team.name} style={{maxHeight: '80%', maxWidth: "100%"}}/>
+        </Team>
         )
       })
     }
@@ -61,12 +71,13 @@ const Wrapper = styled.div`
 `
 
 const Team = styled.div`
-  width: 40%;
+  width: 80%;
   height: 50px;
   margin-top: 30%;
   display: flex;
   justify-content: center;
 `
+
 
 
 export default connect(mapStateToProps, mapDispachToProps)(LateralBar);
