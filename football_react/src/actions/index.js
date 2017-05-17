@@ -1,5 +1,29 @@
 import axios from 'axios'
 
+
+export function removeTeamFromUser(data){
+  return function(dispatch) {
+
+    axios.post('http://localhost:4000/users/removeteam', data)
+    .then(function(response){
+      let userUpdated = response.data.user
+      dispatch(updateUser(userUpdated))
+      // dispatch(sendLeagues(response.data.leagues));
+    })
+    .catch(function(error){console.log(error)})
+
+  return null;
+  }
+}
+
+
+function updateUser(user){
+  return {
+    type: 'UPDATE_USER',
+    payload: user
+  }
+}
+
 export function fetchLeagues() {
   // we return a thunk function, not an action object!
   // the thunk function needs to dispatch some actions to change the

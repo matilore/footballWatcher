@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import ReactDOM from 'react-dom'
 
+import axios from 'axios'
+
 
 import * as actionCreators from '../../actions/index'
 import { connect } from 'react-redux'
@@ -18,13 +20,32 @@ class LateralBar extends React.Component {
 
   }
 
+
   clickForRemove(event) {
+    console.log(event)
+    let target = event.target
+    let defaultStyle = event.target.style
+    let defaultClass = target.className
+
     setTimeout(()=>{
-      confirm('are you sure you wanna remove this team')
+      var answer = confirm('are you sure you wanna remove this team');
+      if (answer === true) {
+        console.log(target.id)
+        let data = {
+          user_token: localStorage.getItem('token'),
+          teamName: target.id
+        }
+        this.props.removeTeamFromUser(data)
+      } else {
+          console.log(answer)
+          target.className = defaultClass
+          target.style.filter = "none";
+          target.style.opacity = "1";
+      }
     }, 100)
     event.target.className += ' infinite tada'
-    event.target.style.filter += "alpha(opacity=50)";
-    event.target.style.opacity += "0.5";
+    event.target.style.filter = "alpha(opacity=50)";
+    event.target.style.opacity = "0.5";
   }
 
   showTeamsLogo(){
@@ -32,8 +53,8 @@ class LateralBar extends React.Component {
       return this.props.user.teams.map((team) =>{
         return (
           <Team key={team.name}>
-            <img className='animated' onDoubleClick={this.clickForRemove} src={URL + team.logo} alt={team.name} key={team.name} style={{maxHeight: '80%', maxWidth: "100%"}}/>
-        </Team>
+            <img className='animated' onDoubleClick={this.clickForRemove.bind(this)} src={URL + team.logo} alt={team.name} id={team.name} key={team.name} style={{maxHeight: '80%', maxWidth: "100%"}}/>
+          </Team>
         )
       })
     }
@@ -41,7 +62,6 @@ class LateralBar extends React.Component {
 
 
   render () {
-    console.log(this.props.user.teams)
 
     return (
       <Wrapper>

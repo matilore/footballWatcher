@@ -66,6 +66,8 @@ function user(state = {}, action){
   console.log(state)
   if (action.type === "ADD_USER") {
       return action.payload
+  } else if (action.type === "UPDATE_USER"){
+      return action.payload
   } else {
     return state
   }
