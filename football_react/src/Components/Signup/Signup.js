@@ -1,23 +1,20 @@
 import React from 'react'
 import axios from 'axios'
+import styled from 'styled-components'
+
+import {FormGroup, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap'
+
 
 class Signup extends React.Component {
 
 
-  checkPass(event){
-    if(this.refs.password.value !== event.target.value){
-      event.target.style.outlineColor = "red"
-    } else {
-      event.target.style.outlineColor = "green"
-    }
-  }
-
   submit(){
 
     let user = {
-      email: this.refs.email.value,
-      password: this.refs.password.value
+      email: this.email.value,
+      password: this.password.value
     }
+    console.log(user)
 
 
 
@@ -37,15 +34,41 @@ class Signup extends React.Component {
 
   render () {
     return (
-      <div>
-        <label>email</label><input ref="email" type="text"/><br/>
-        <label>password</label><input ref="password" type="password" /><br/>
-        <label>repeat password</label><input onChange={this.checkPass.bind(this)} ref="r_password" type="password" /><br/>
-        <button ref="button" onClick={this.submit.bind(this)}>Signup</button>
-      </div>
+      <Wrapper>
+        <FormGroup>
+            <ControlLabel>Email</ControlLabel>
+            <FormControl
+              type="text"
+              inputRef={ref => {this.email = ref}}
+              placeholder="email"
+            />
+          <ControlLabel>Password</ControlLabel>
+            <FormControl
+              type="password"
+              inputRef={ref => {this.password = ref}}
+              placeholder="password"
+            />
+          <ControlLabel>Password Confirmation</ControlLabel>
+            <FormControl
+              type="password"
+              inputRef={ref => {this.r_password = ref}}
+              placeholder="password confirmation"
+            />
+            <button ref="button" onClick={this.submit.bind(this)}>Signup</button>
+          </FormGroup>
+      </Wrapper>
+
     )
 
   }
 }
+
+const Wrapper = styled.div`
+  width: 60%;
+  margin-top: 10%;
+  margin-left: auto
+  margin-right: auto
+
+`
 
 export default Signup;

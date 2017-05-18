@@ -24,4 +24,17 @@ router.post('/addteam', function(req, res, next) {
 
 });
 
+
+router.post('/removeteam', function(req, res, next) {
+  console.log(req.body.teamName)
+  let userId = jwt.verify(req.body.user_token, "ironhack").id;
+  User.findByIdAndUpdate({_id: userId}, {$pull: {teams: {name: req.body.teamName}}}, {new: true}, (err, user) => {
+    if (err) {
+      throw err
+    }
+    res.json({user});
+  })
+
+});
+
 module.exports = router;

@@ -1,7 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-
-// import styled from "styled-components"
+import styled from "styled-components"
 
 import * as actionCreators from '../../actions/index'
 import { connect } from 'react-redux'
@@ -18,7 +17,7 @@ class Selector extends React.Component {
 
   leagueReady(){
     if (Object.keys(this.props.leagues).length !== 0) {
-      return <h2 ref="league">{this.props.leagues[this.props.selector.leagueCounter.value].name}</h2>
+      return <h2 style={{width: '30%', textAlign: 'center'}} ref="league">{this.props.leagues[this.props.selector.leagueCounter.value].name}</h2>
     }
   }
 
@@ -50,25 +49,53 @@ class Selector extends React.Component {
 
   render () {
     return(
-      <div>
-        <div>
-          <button onClick={()=> this.props.decreaseLeague(this.props.leagues.length)}> &lt; </button>
+      <Wrapper>
+        <MiniWrapper>
+          <Button onClick={()=> this.props.decreaseLeague(this.props.leagues.length)}><i className="fa fa-angle-double-left fa-3x" aria-hidden="true"></i></Button>
           {this.leagueReady()}
-          <button onClick={()=> this.props.increaseLeague(this.props.leagues.length)}>></button>
-        </div>
+          <Button onClick={()=> this.props.increaseLeague(this.props.leagues.length)}><i className="fa fa-angle-double-right fa-3x" aria-hidden="true"></i></Button>
+        </MiniWrapper>
 
-        <div>
-          <button onClick={()=> this.props.decreaseTeam(this.selectedLeague.length)} > &lt; </button>
+        <MiniWrapper>
+          <Button onClick={()=> this.props.decreaseTeam(this.selectedLeague.length)} ><i className="fa fa-angle-double-left fa-3x" aria-hidden="true"></i></Button>
           {this.teamOfSelectedLeague()}
-          <button onClick={()=> this.props.increaseTeam(this.selectedLeague.length)}>></button>
+          <Button onClick={()=> this.props.increaseTeam(this.selectedLeague.length)}><i className="fa fa-angle-double-right fa-3x" aria-hidden="true"></i></Button>
           <br />
-          <button onClick={this.submit.bind(this)}>Submit</button>
-      </div>
-      </div>
+      </MiniWrapper>
+
+      <MiniWrapper>
+        <Button backgroundColor={'rgb(7, 5, 51)'} height={'50px'} color={'white'} onClick={this.submit.bind(this)}>Add Team</Button>
+    </MiniWrapper>
+
+    </Wrapper>
 
     )
   }
 }
+
+const Wrapper = styled.div`
+  width: 60%;
+  margin-top: 10%;
+  margin-left: auto
+  margin-right: auto
+
+`
+
+const MiniWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+`
+const Button = styled.button`
+  backgroundColor: ${(props) => props.backgroundColor || 'transparent'};
+  height: ${(props) => props.height || 'auto'};
+  width: 100px;
+  border: none;
+  outline: none;
+  color: ${(props) => props.color || 'black'};
+  fontSize: 1em;
+`
 
 
 function mapStateToProps(state){

@@ -66,6 +66,7 @@ class LateralBar extends React.Component {
     return (
       <Wrapper>
         {this.showTeamsLogo()}
+        <Span onClick={()=> {this.props.history.push('/team')}} className="fa fa-plus-square-o fa-3x" aria-hidden="true"></Span>
       </Wrapper>
     )
   }
@@ -97,7 +98,9 @@ const Team = styled.div`
   display: flex;
   justify-content: center;
 `
-
+const Span = styled.span`
+  margin-top: 20px;
+  `
 
 
 export default connect(mapStateToProps, mapDispachToProps)(LateralBar);

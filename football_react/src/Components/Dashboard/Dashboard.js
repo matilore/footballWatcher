@@ -1,6 +1,8 @@
 import React from 'react'
 import axios from 'axios'
+import styled from 'styled-components'
 
+import VideoSection from '../VideoSection'
 import LateralBar from '../LateralBar'
 
 import * as actionCreators from '../../actions/index'
@@ -28,11 +30,21 @@ class Dashboard extends React.Component {
   render () {
 
 
-    return <div>
-      <LateralBar />
-    </div>
+    return (
+      <Wrapper>
+        <LateralBar history={this.props.history} />
+          <VideoSection/>
+      </Wrapper>
+    )
   }
 }
+
+
+const Wrapper = styled.div`
+  width: 100%
+  display: flex;
+`
+
 
 function mapStateToProps(state){
   return state
