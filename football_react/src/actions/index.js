@@ -1,5 +1,42 @@
 import axios from 'axios'
 
+const API_KEY = 'AIzaSyDkw0ZpgAST7rCUuyCuB37vN22qrAyilbs'
+
+import YTSearch from '../utils/YTSearch';
+
+
+
+export function fetchVideos(term){
+  return function(dispatch) {
+
+    YTSearch({key: API_KEY, maxResults:20, term: (term || '') + ' football skills goals'}, (videos) => {
+      dispatch(addVideosToMenu(videos))
+    });
+
+  return null;
+  }
+}
+
+function addVideosToMenu(videos){
+  return {
+    type: "ADD_VIDEOS",
+    payload: videos
+  }
+}
+
+export function selectActiveTeam(team){
+  return {
+    type: "SELECT_ACTIVE_TEAM",
+    payload: team
+  }
+}
+
+export function selectActiveVideo(video){
+  return {
+    type: "SELECT_ACTIVE_VIDEO",
+    payload: video
+  }
+}
 
 export function removeTeamFromUser(data){
   return function(dispatch) {
@@ -8,7 +45,6 @@ export function removeTeamFromUser(data){
     .then(function(response){
       let userUpdated = response.data.user
       dispatch(updateUser(userUpdated))
-      // dispatch(sendLeagues(response.data.leagues));
     })
     .catch(function(error){console.log(error)})
 

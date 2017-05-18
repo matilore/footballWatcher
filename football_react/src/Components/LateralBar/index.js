@@ -16,13 +16,10 @@ class LateralBar extends React.Component {
   constructor(props){
     super(props)
     this.teams = props.user.teams
-    console.log(props.user.teams)
-
   }
 
 
   clickForRemove(event) {
-    console.log(event)
     let target = event.target
     let defaultStyle = event.target.style
     let defaultClass = target.className
@@ -30,14 +27,12 @@ class LateralBar extends React.Component {
     setTimeout(()=>{
       var answer = confirm('are you sure you wanna remove this team');
       if (answer === true) {
-        console.log(target.id)
         let data = {
           user_token: localStorage.getItem('token'),
           teamName: target.id
         }
         this.props.removeTeamFromUser(data)
       } else {
-          console.log(answer)
           target.className = defaultClass
           target.style.filter = "none";
           target.style.opacity = "1";
@@ -49,11 +44,13 @@ class LateralBar extends React.Component {
   }
 
   showTeamsLogo(){
+
     if (this.props.user.teams) {
       return this.props.user.teams.map((team) =>{
+
         return (
           <Team key={team.name}>
-            <img className='animated' onDoubleClick={this.clickForRemove.bind(this)} src={URL + team.logo} alt={team.name} id={team.name} key={team.name} style={{maxHeight: '80%', maxWidth: "100%"}}/>
+            <img className='animated' onClick={this.props.selectActiveTeam.bind(null, team)} onDoubleClick={this.clickForRemove.bind(this)} src={URL + team.logo} alt={team.name} id={team.name} key={team.name} style={{maxHeight: '80%', maxWidth: "100%"}}/>
           </Team>
         )
       })
@@ -62,6 +59,7 @@ class LateralBar extends React.Component {
 
 
   render () {
+
 
     return (
       <Wrapper>

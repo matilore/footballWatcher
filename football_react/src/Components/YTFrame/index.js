@@ -1,6 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import * as actionCreators from '../../actions/index'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+
 let loadYT;
 
 class YTFrame extends React.Component {
@@ -16,11 +20,10 @@ class YTFrame extends React.Component {
       })
     }
     loadYT.then((YT) => {
-      console.log(YT)
       this.player = new YT.Player(this.youtubePlayerAnchor, {
         height: this.props.height || '100%',
         width: this.props.width || '70%',
-        videoId: 'arsvU5a0cCQ', //this.props.YTid,
+        videoId: this.props.YTid,
         events: {
           onStateChange: this.onPlayerStateChange
         }
@@ -50,4 +53,15 @@ const Wrapper = styled.div`
   justify-content: center;
 `
 
-export default YTFrame;
+
+
+function mapStateToProps(state){
+  return state
+}
+
+
+function mapDispachToProps(dispatch){
+  return bindActionCreators({ ...actionCreators}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispachToProps)(YTFrame);

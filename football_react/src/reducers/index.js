@@ -63,7 +63,6 @@ function selector(state = initialState, action){
 
 
 function user(state = {}, action){
-  console.log(state)
   if (action.type === "ADD_USER") {
       return action.payload
   } else if (action.type === "UPDATE_USER"){
@@ -71,9 +70,31 @@ function user(state = {}, action){
   } else {
     return state
   }
+}
 
+function selectedTeam(state = {}, action){
+  if (action.type === "SELECT_ACTIVE_TEAM") {
+    return action.payload
+  } else {
+    return state
+  }
+}
+
+function selectedVideo(state = {}, action){
+  if (action.type === "SELECT_ACTIVE_VIDEO") {
+    return action.payload
+  } else {
+    return state
+  }
+}
+
+function videos(state =[], action){
+  if (action.type === "ADD_VIDEOS") {
+    return action.payload
+  } else {
+    return state
+  }
 }
 
 
-
-export const rootReducer = combineReducers({selector, user, leagues, routing})
+export const rootReducer = combineReducers({selector, user, leagues, routing, videos, selectedTeam, selectedVideo})
