@@ -1,9 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import ReactDOM from 'react-dom'
-
-import axios from 'axios'
-
 
 import * as actionCreators from '../../actions/index'
 import { connect } from 'react-redux'
@@ -21,7 +17,6 @@ class LateralBar extends React.Component {
 
   clickForRemove(event) {
     let target = event.target
-    let defaultStyle = event.target.style
     let defaultClass = target.className
 
     setTimeout(()=>{
@@ -47,10 +42,9 @@ class LateralBar extends React.Component {
 
     if (this.props.user.teams) {
       return this.props.user.teams.map((team) =>{
-
         return (
           <Team key={team.name}>
-            <img className='animated' onClick={this.props.selectActiveTeam.bind(null, team)} onDoubleClick={this.clickForRemove.bind(this)} src={URL + team.logo} alt={team.name} id={team.name} key={team.name} style={{maxHeight: '80%', maxWidth: "100%"}}/>
+            <img className='animated' onClick={this.props.chooseTeam.bind(null, team)} onDoubleClick={this.clickForRemove.bind(this)} src={URL + team.logo} alt={team.name} id={team.name} key={team.name} style={{maxHeight: '80%', maxWidth: "100%"}}/>
           </Team>
         )
       })

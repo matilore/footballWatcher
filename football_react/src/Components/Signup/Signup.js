@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 
-import {FormGroup, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap'
+import {FormGroup, ControlLabel, FormControl } from 'react-bootstrap'
 
 
 class Signup extends React.Component {

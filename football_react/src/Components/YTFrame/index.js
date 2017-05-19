@@ -1,48 +1,31 @@
 import React from 'react'
+import YouTube from 'react-youtube'
 import styled from 'styled-components'
 
 import * as actionCreators from '../../actions/index'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-let loadYT;
-
 class YTFrame extends React.Component {
+  render() {
+    const opts = {
+      height: '490',
+      width: '740',
+      playerVars: { // https://developers.google.com/youtube/player_parameters
+        autoplay: 0,
+      }
+    };
 
-  componentDidMount () {
-    if (!loadYT) {
-      loadYT = new Promise((resolve) => {
-        const tag = document.createElement('script')
-        tag.src = 'https://www.youtube.com/iframe_api'
-        const firstScriptTag = document.getElementsByTagName('script')[0]
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
-        window.onYouTubeIframeAPIReady = () => resolve(window.YT)
-      })
-    }
-    loadYT.then((YT) => {
-      this.player = new YT.Player(this.youtubePlayerAnchor, {
-        height: this.props.height || '100%',
-        width: this.props.width || '70%',
-        videoId: this.props.YTid,
-        events: {
-          onStateChange: this.onPlayerStateChange
-        }
-      })
-    })
-  }
-
-  onPlayerStateChange = (e) => {
-    if (typeof this.props.onStateChange === 'function') {
-      this.props.onStateChange(e)
-    }
-  }
-
-  render () {
     return (
-      <Wrapper className='youtubeComponent-wrapper'>
-        <div ref={(r) => { this.youtubePlayerAnchor = r }}></div>
+      <Wrapper>
+        <YouTube
+          videoId={this.props.videoId}
+          opts={opts}
+          onReady={this._onReady}
+        />
       </Wrapper>
-    )
+
+    );
   }
 }
 
@@ -54,14 +37,13 @@ const Wrapper = styled.div`
 `
 
 
+  function mapStateToProps(state){
+    return state
+  }
 
-function mapStateToProps(state){
-  return state
-}
 
+  function mapDispachToProps(dispatch){
+    return bindActionCreators({ ...actionCreators}, dispatch)
+  }
 
-function mapDispachToProps(dispatch){
-  return bindActionCreators({ ...actionCreators}, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispachToProps)(YTFrame);
+  export default connect(mapStateToProps, mapDispachToProps)(YTFrame);

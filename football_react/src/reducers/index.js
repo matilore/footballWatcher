@@ -61,7 +61,6 @@ function selector(state = initialState, action){
   }
 }
 
-
 function user(state = {}, action){
   if (action.type === "ADD_USER") {
       return action.payload
@@ -72,29 +71,40 @@ function user(state = {}, action){
   }
 }
 
-function selectedTeam(state = {}, action){
-  if (action.type === "SELECT_ACTIVE_TEAM") {
-    return action.payload
-  } else {
-    return state
-  }
+
+const initialVideosState = {
+  list: [],
+  isLoading: false,
+  selectedTeam: {},
+  selectedVideo: {}
 }
 
-function selectedVideo(state = {}, action){
-  if (action.type === "SELECT_ACTIVE_VIDEO") {
-    return action.payload
-  } else {
-    return state
-  }
-}
-
-function videos(state =[], action){
+function videos(state = initialVideosState, action){
   if (action.type === "ADD_VIDEOS") {
-    return action.payload
+    return {
+      ...state,
+      list: action.payload,
+      isLoading: false,
+    }
+  } else if (action.type === "FETCHING_VIDEOS") {
+    return {
+      ...state,
+      isLoading: true,
+    }
+  } else if(action.type === "SELECT_ACTIVE_TEAM"){
+    return {
+      ...state,
+      selectedTeam: action.payload,
+    }
+  } else if(action.type === "SELECT_ACTIVE_VIDEO"){
+    return {
+      ...state,
+      selectedVideo: action.payload,
+    }
   } else {
     return state
   }
 }
 
 
-export const rootReducer = combineReducers({selector, user, leagues, routing, videos, selectedTeam, selectedVideo})
+export const rootReducer = combineReducers({selector, user, leagues, routing, videos})

@@ -42,7 +42,9 @@ class Selector extends React.Component {
 
     axios.post("http://localhost:4000/users/addteam", data)
     .then(function(response){
+      console.log(response)
       this.props.history.push('/dashboard')
+      this.props.chooseTeam(response.data.teamAdded)
     }.bind(this))
     .catch(function(error){console.log(error)})
   }

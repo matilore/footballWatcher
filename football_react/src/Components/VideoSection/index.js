@@ -3,23 +3,34 @@ import styled from 'styled-components'
 
 import YTFrame from '../YTFrame'
 import YTMenu from '../YTMenu'
+import Spinner from '../Spinner'
 
 
 import * as actionCreators from '../../actions/index'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
+
+
+
+
 class VideoSection extends React.Component {
+
+
+
+
   render () {
-    console.log(this.props.videos)
-    return (
+    let videoId = Object.keys(this.props.videos.selectedVideo).length > 0 ? this.props.videos.selectedVideo.id.videoId : undefined
+
+      return (
       <Main id="main">
-        <YTFrame YTid={'iDWFPxBYYA0'}></YTFrame>
+        {videoId === undefined ? <Spinner /> : <YTFrame videoId={videoId} /> }
         <YTMenu />
       </Main>
     )
   }
 }
+
 
 const Main = styled.div`
   width: 95%;
