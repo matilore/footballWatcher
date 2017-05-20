@@ -8,9 +8,9 @@ import { bindActionCreators } from 'redux'
 
 class YTMenu extends React.Component {
 
-
   renderVideos(){
-    return this.props.videos.list.slice(0,10).map((video, index)=>{
+    let menuCounter = this.props.videos.menuCounter;
+    return this.props.videos.list.slice(menuCounter, menuCounter + 10).map((video, index)=>{
       return (
         <ImgWrapper key={index}>
           <img onClick={this.props.selectActiveVideo.bind(null, video)} style={{height: '100%', marginLeft: '10%'}} src={video.snippet.thumbnails.medium.url} alt=""/>
@@ -19,16 +19,14 @@ class YTMenu extends React.Component {
     })
   }
 
-
-
   render () {
     return (
       <Wrapper id="YTMenu">
-        <Button><i className="fa fa-angle-double-left fa-3x" aria-hidden="true"></i></Button>
+        <Button onClick={this.props.previousMenuVideos}><i className="fa fa-angle-double-left fa-3x" aria-hidden="true"></i></Button>
         <VideosWrapper>
           {this.renderVideos()}
         </VideosWrapper>
-        <Button><i className="fa fa-angle-double-right fa-3x" aria-hidden="true"></i></Button>
+        <Button onClick={this.props.nextMenuVideos}><i className="fa fa-angle-double-right fa-3x" aria-hidden="true"></i></Button>
       </Wrapper>
     )
   }

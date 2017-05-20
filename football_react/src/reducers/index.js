@@ -76,7 +76,8 @@ const initialVideosState = {
   list: [],
   isLoading: false,
   selectedTeam: {},
-  selectedVideo: {}
+  selectedVideo: {},
+  menuCounter: 0
 }
 
 function videos(state = initialVideosState, action){
@@ -100,6 +101,25 @@ function videos(state = initialVideosState, action){
     return {
       ...state,
       selectedVideo: action.payload,
+    }
+  } else if(action.type === "NEXT_VIDEOS"){
+    console.log(state.menuCounter, state.list.length)
+    if (state.menuCounter != state.list.length - 10) {
+      return {
+          ...state,
+          menuCounter: state.menuCounter + 10
+      }
+    } else {
+      return state
+    }
+  } else if(action.type === "PREVIOUS_VIDEOS"){
+    if (state.menuCounter != 0) {
+      return {
+          ...state,
+          menuCounter: state.menuCounter - 10
+      }
+    } else {
+      return state
     }
   } else {
     return state

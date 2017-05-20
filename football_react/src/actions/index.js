@@ -143,3 +143,15 @@ export function addUserToDashboard(user){
     payload: user
   }
 }
+
+export function nextMenuVideos(){
+  return {
+    type: "NEXT_VIDEOS"
+  }
+}
+
+export function previousMenuVideos(){
+  return {
+    type: "PREVIOUS_VIDEOS"
+  }
+}

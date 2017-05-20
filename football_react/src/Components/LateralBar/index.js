@@ -75,18 +75,19 @@ function mapDispachToProps(dispatch){
 
 
 const Wrapper = styled.div`
-  width: 5%;
-  height: 100vh;
-  border: 1px solid black;
+  width: 6%;
+  height: 95vh;
+  border-right: 1px solid red;
   display: flex;
   flexDirection: column;
   align-items: center;
+  margin: 1% auto;
 `
 
 const Team = styled.div`
   width: 80%;
   height: 50px;
-  margin-top: 30%;
+  margin-top: 20%;
   display: flex;
   justify-content: center;
 `
