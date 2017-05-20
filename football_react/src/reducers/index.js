@@ -103,7 +103,6 @@ function videos(state = initialVideosState, action){
       selectedVideo: action.payload,
     }
   } else if(action.type === "NEXT_VIDEOS"){
-    console.log(state.menuCounter, state.list.length)
     if (state.menuCounter != state.list.length - 10) {
       return {
           ...state,

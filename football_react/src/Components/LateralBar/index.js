@@ -42,8 +42,9 @@ class LateralBar extends React.Component {
 
     if (this.props.user.teams) {
       return this.props.user.teams.map((team) =>{
+        let borderRight = this.props.videos.selectedTeam.name == team.name ? "4px solid red" : "none";
         return (
-          <Team key={team.name}>
+          <Team key={team.name} style={{borderRight, boxSizing: "content-box", paddingTop: '10%'}}>
             <img className='animated' onClick={this.props.chooseTeam.bind(null, team)} onDoubleClick={this.clickForRemove.bind(this)} src={URL + team.logo} alt={team.name} id={team.name} key={team.name} style={{maxHeight: '80%', maxWidth: "100%"}}/>
           </Team>
         )

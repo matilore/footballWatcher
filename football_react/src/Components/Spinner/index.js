@@ -17,7 +17,7 @@ class Spinner extends React.Component {
     }
     return (
       <Wrapper>
-        <h1 style={{margin: '100px'}} className="animated infinite pulse" >{sentence}</h1>
+        <h1 style={{margin: '100px', justifyContent: "center"}} className="animated infinite pulse" >{sentence}</h1>
         <Loader color="purple" size="25px" margin="10px"/>
       </Wrapper>
     );

@@ -13,13 +13,14 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/addteam', function(req, res, next) {
-  console.log(req.body.team)
+  let teamAdded = req.body.team
   let userId = jwt.verify(req.body.user_token, "ironhack").id;
-  User.findByIdAndUpdate({_id: userId}, {$push: {teams: req.body.team}}, (err, user) => {
+  User.findByIdAndUpdate({_id: userId}, {$push: {teams: teamAdded}}, {new: true}, (err, user) => {
     if (err) {
       throw err
     }
-    res.json({message: "user updated"});
+    let lastTeamAdded = user.teams[user.teams.length - 1]
+    res.json({message: "user updated", teamAdded});
   })
 
 });
