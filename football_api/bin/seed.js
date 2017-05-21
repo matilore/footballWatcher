@@ -118,7 +118,7 @@ const league = [
       },
       {
         name: 'Crystal Palace',
-        teamLogo: '/images/england/cristal-palace',
+        teamLogo: '/images/england/cristal-palace.png',
       },
       {
         name: 'Everton',
@@ -292,7 +292,7 @@ const league = [
       },
       {
         name: 'Bayern München',
-        teamLogo: '/images/germany/bayern-munchen',
+        teamLogo: '/images/germany/bayern-munchen.svg',
       },
       {
         name: 'Darmstadt 98',
@@ -300,7 +300,7 @@ const league = [
       },
       {
         name: 'Eintracht',
-        teamLogo: '/images/germany/eintracht.svg',
+        teamLogo: '/images/germany/eintracht.png',
       },
       {
         name: 'Freiburg',
@@ -332,7 +332,7 @@ const league = [
       },
       {
         name: 'RB Leipzig',
-        teamLogo: '/images/germany/leipzig.svg',
+        teamLogo: '/images/germany/leipzig.png',
       },
       {
         name: 'Schalke 04',
@@ -367,11 +367,11 @@ const league = [
       },
       {
         name: 'Excelsior',
-        teamLogo: '/images/holland/excelsior.svg',
+        teamLogo: '/images/holland/excelsior.png',
       },
       {
         name: 'Feyenoord',
-        teamLogo: '/images/holland/feyenoord.png',
+        teamLogo: '/images/holland/feyenoord.svg',
       },
       {
         name: 'G.A.Eagles',
