@@ -55,18 +55,19 @@ class TeamSelector extends React.Component {
   }
 
   render () {
+    console.log(this.props)
     return(
       <Wrapper>
         <MiniWrapper>
-          <Button onClick={()=> this.props.decreaseLeague(this.props.teamSelector.leagues.length)}><i className="fa fa-angle-double-left fa-3x" aria-hidden="true"></i></Button>
+          <Button onClick={this.props.decreaseLeague}><i className="fa fa-angle-double-left fa-3x" aria-hidden="true"></i></Button>
           {this.leagueReady()}
-          <Button onClick={()=> this.props.increaseLeague(this.props.teamSelector.leagues.length)}><i className="fa fa-angle-double-right fa-3x" aria-hidden="true"></i></Button>
+          <Button onClick={this.props.increaseLeague}><i className="fa fa-angle-double-right fa-3x" aria-hidden="true"></i></Button>
         </MiniWrapper>
 
         <MiniWrapper>
-          <Button onClick={()=> this.props.decreaseTeam(this.selectedLeague.length)} ><i className="fa fa-angle-double-left fa-3x" aria-hidden="true"></i></Button>
+          <Button onClick={this.props.decreaseTeam} ><i className="fa fa-angle-double-left fa-3x" aria-hidden="true"></i></Button>
           {this.teamOfSelectedLeague()}
-          <Button onClick={()=> this.props.increaseTeam(this.selectedLeague.length)}><i className="fa fa-angle-double-right fa-3x" aria-hidden="true"></i></Button>
+          <Button onClick={this.props.increaseTeam}><i className="fa fa-angle-double-right fa-3x" aria-hidden="true"></i></Button>
           <br />
       </MiniWrapper>
 

@@ -1,14 +1,18 @@
-import addUserToDashboard from './dashboard'
+import { authUser } from './dashboard'
 import { selectActiveTeam, chooseTeam } from './lateralBar'
-import { fetchLeagues, removeTeamFromUser } from './teamSelector'
+import { fetchLeagues, removeTeamFromUser, increaseLeague, decreaseLeague, increaseTeam, decreaseTeam } from './teamSelector'
 import { selectActiveVideo, nextMenuVideos, previousMenuVideos } from './ytMenu'
 
 const actionCreators = {
-  addUserToDashboard,
+  authUser,
   selectActiveVideo,
   chooseTeam,
   fetchLeagues,
   removeTeamFromUser,
+  increaseLeague,
+  decreaseLeague,
+  increaseTeam,
+  decreaseTeam,
   selectActiveVideo,
   nextMenuVideos,
   previousMenuVideos

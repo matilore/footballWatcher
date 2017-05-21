@@ -20,7 +20,7 @@ export default function teamSelector(state = initialState, action){
       return {
         ...state,
         leagueCounter: {
-          value: (state.leagueCounter.value +1) % action.payload
+          value: (state.leagueCounter.value +1) % state.leagues.length
         },
         teamCounter: {
           value: 0
@@ -30,7 +30,7 @@ export default function teamSelector(state = initialState, action){
         return {
           ...state,
           leagueCounter: {
-          value: ((state.leagueCounter.value + action.payload) -1) % action.payload
+          value: ((state.leagueCounter.value + state.leagues.length) -1) % state.leagues.length
         },
         teamCounter: {
           value: 0
@@ -40,14 +40,14 @@ export default function teamSelector(state = initialState, action){
         return {
           ...state,
           teamCounter: {
-            value: (state.teamCounter.value +1) % action.payload
+            value: (state.teamCounter.value +1) % state.leagues[state.leagueCounter.value].teams.length
           }
         }
       case 'DECREASE_TEAM':
         return {
           ...state,
           teamCounter: {
-            value: ((state.teamCounter.value + action.payload) -1) % action.payload
+            value: ((state.teamCounter.value + action.state.leagues[state.leagueCounter.value].length) -1) % state.leagues[state.leagueCounter.value].length
           }
         }
       default:

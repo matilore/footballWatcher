@@ -43,9 +43,8 @@ router.post("/signup", (req, res, next) => {
         res.status(400).json({ message: err });
       } else {
         var payload = {id: user._id};
-        console.log('user', user);
         var token = jwt.sign(payload, jwtOptions.secretOrKey);
-        res.status(200).json({message: "ok", token: token});
+        res.status(200).json({message: "ok", token, user});
       	// res.status(200).json(user);
       }
     });
@@ -70,11 +69,9 @@ router.post("/login", function(req, res) {
 	    res.status(401).json({message:"no such user found"});
 	  } else {
       bcrypt.compare(password, user.password, function(err, isMatch) {
-        console.log(isMatch);
         if (!isMatch) {
           res.status(401).json({message:"passwords did not match"});
         } else {
-          console.log("I'mm the master", user);
           var payload = {id: user._id};
           var token = jwt.sign(payload, jwtOptions.secretOrKey);
           res.json({message: "ok", token, user});

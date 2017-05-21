@@ -19,9 +19,9 @@ const Routes = () => (
     <Router history={history}>
       <div>
         <Route path="/signup" component={Signup}/>
-        <Route path="/dashboard" component={Dashboard}/>
         <Route path="/login" component={Login}/>
         <PrivateRoute path="/team" component={TeamSelector}/>
+        <PrivateRoute path="/dashboard" component={Dashboard}/>
       </div>
     </Router>
   </Provider>

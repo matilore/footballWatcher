@@ -8,19 +8,27 @@ import { bindActionCreators } from 'redux'
 var Loader = require('halogen/PulseLoader');
 
 class Spinner extends React.Component {
+  
   render() {
-    let sentence;
-    if (Object.keys(this.props.selectedTeam).length == 0) {
-      sentence = "Please, select a team from the left"
+
+    let isSelectedTeamReady = Object.keys(this.props.selectedTeam).length == 0
+    let sentence = isSelectedTeamReady ?
+    "Please, select a team from the left" :
+    "Now just choose one of the videos below";
+
+    let welcome = this.props.user.email != undefined ? `Hello ${this.props.user.email}` : undefined
+
+    if (welcome && sentence) {
+      return (
+        <Wrapper>
+          <h1 style={{justifyContent: "center"}} className="animated pulse" >{welcome}</h1>
+          <h1 style={{margin: '100px', justifyContent: "center"}} className="animated pulse" >{sentence}</h1>
+          <Loader color="purple" size="25px" margin="10px"/>
+        </Wrapper>
+      )
     } else {
-      sentence = "Now just choose one of the videos below"
+      return null
     }
-    return (
-      <Wrapper>
-        <h1 style={{margin: '100px', justifyContent: "center"}} className="animated infinite pulse" >{sentence}</h1>
-        <Loader color="purple" size="25px" margin="10px"/>
-      </Wrapper>
-    );
   }
 };
 
@@ -33,6 +41,7 @@ const Wrapper = styled.div`
 `
 function mapStateToProps(state){
   return {
+    user: state.user,
     selectedTeam: state.videos.selectedTeam,
     selectedVideo: state.videos.selectedVideo
   }
