@@ -1,19 +1,15 @@
 import React from 'react'
-import {
-  BrowserRouter as Router,
-  Route
-} from 'react-router-dom'
-
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import { Provider } from 'react-redux'
 
 import store , { history } from './store'
 
 import PrivateRoute from './Components/PrivateRoute'
-import Signup from './Components/Signup/Signup'
-import Login from './Components/Login/Login'
-import Selector from './Components/Team/Selector'
-import Dashboard from './Components/Dashboard/Dashboard'
+import Signup from './Components/Signup'
+import Login from './Components/Login'
+import TeamSelector from './Components/TeamSelector'
+import Dashboard from './Components/Dashboard'
 
 
 
@@ -25,7 +21,7 @@ const Routes = () => (
         <Route path="/signup" component={Signup}/>
         <Route path="/dashboard" component={Dashboard}/>
         <Route path="/login" component={Login}/>
-        <PrivateRoute path="/team" component={Selector}/>
+        <PrivateRoute path="/team" component={TeamSelector}/>
       </div>
     </Router>
   </Provider>

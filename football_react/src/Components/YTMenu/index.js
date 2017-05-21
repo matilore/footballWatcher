@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 
-import * as actionCreators from '../../actions/index'
+import actionCreators from '../../actions/index'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 

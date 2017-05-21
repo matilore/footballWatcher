@@ -2,29 +2,34 @@ import React from 'react'
 import axios from 'axios'
 import styled from "styled-components"
 
-import * as actionCreators from '../../actions/index'
+import actionCreators from '../../actions/index'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 const URL = "http://localhost:4000"
 
 
-class Selector extends React.Component {
+class TeamSelector extends React.Component {
+
+  constructor(props){
+    super(props)
+    console.log(props)
+  }
 
   componentWillMount(){
     this.props.fetchLeagues()
   }
 
   leagueReady(){
-    if (Object.keys(this.props.leagues).length !== 0) {
-      return <h2 style={{width: '30%', textAlign: 'center'}} ref="league">{this.props.leagues[this.props.selector.leagueCounter.value].name}</h2>
+    if (Object.keys(this.props.teamSelector.leagues).length !== 0) {
+      return <h2 style={{width: '30%', textAlign: 'center'}} ref="league">{this.props.teamSelector.leagues[this.props.teamSelector.leagueCounter.value].name}</h2>
     }
   }
 
   teamOfSelectedLeague(){
-    if (Object.keys(this.props.leagues).length !== 0) {
-      this.selectedLeague = this.props.leagues[this.props.selector.leagueCounter.value].teams
-      let currentTeamObject = this.props.leagues[this.props.selector.leagueCounter.value].teams[this.props.selector.teamCounter.value]
+    if (Object.keys(this.props.teamSelector.leagues).length !== 0) {
+      this.selectedLeague = this.props.teamSelector.leagues[this.props.teamSelector.leagueCounter.value].teams
+      let currentTeamObject = this.props.teamSelector.leagues[this.props.teamSelector.leagueCounter.value].teams[this.props.teamSelector.teamCounter.value]
       return <img style={{width: "200px", height: "200px"}} alt={currentTeamObject.name} src={URL + currentTeamObject.teamLogo} />
     }
   }
@@ -33,10 +38,10 @@ class Selector extends React.Component {
     let data = {
       user_token: localStorage.getItem('token'),
       team: {
-            name: this.props.leagues[this.props.selector.leagueCounter.value].teams[this.props.selector.teamCounter.value].name,
-            logo: this.props.leagues[this.props.selector.leagueCounter.value].teams[this.props.selector.teamCounter.value].teamLogo,
-            league: this.props.leagues[this.props.selector.leagueCounter.value].name,
-            leagueId: this.props.leagues[this.props.selector.leagueCounter.value].id
+            name: this.props.teamSelector.leagues[this.props.teamSelector.leagueCounter.value].teams[this.props.teamSelector.teamCounter.value].name,
+            logo: this.props.teamSelector.leagues[this.props.teamSelector.leagueCounter.value].teams[this.props.teamSelector.teamCounter.value].teamLogo,
+            league: this.props.teamSelector.leagues[this.props.teamSelector.leagueCounter.value].name,
+            leagueId: this.props.teamSelector.leagues[this.props.teamSelector.leagueCounter.value].id
           }
     }
 
@@ -53,9 +58,9 @@ class Selector extends React.Component {
     return(
       <Wrapper>
         <MiniWrapper>
-          <Button onClick={()=> this.props.decreaseLeague(this.props.leagues.length)}><i className="fa fa-angle-double-left fa-3x" aria-hidden="true"></i></Button>
+          <Button onClick={()=> this.props.decreaseLeague(this.props.teamSelector.leagues.length)}><i className="fa fa-angle-double-left fa-3x" aria-hidden="true"></i></Button>
           {this.leagueReady()}
-          <Button onClick={()=> this.props.increaseLeague(this.props.leagues.length)}><i className="fa fa-angle-double-right fa-3x" aria-hidden="true"></i></Button>
+          <Button onClick={()=> this.props.increaseLeague(this.props.teamSelector.leagues.length)}><i className="fa fa-angle-double-right fa-3x" aria-hidden="true"></i></Button>
         </MiniWrapper>
 
         <MiniWrapper>
@@ -106,10 +111,10 @@ function mapStateToProps(state){
 
 
 function mapDispachToProps(dispatch){
-  return bindActionCreators({ ...actionCreators}, dispatch)
+  return bindActionCreators({...actionCreators}, dispatch)
 }
 
 
 
 
-export default connect(mapStateToProps, mapDispachToProps)(Selector);
+export default connect(mapStateToProps, mapDispachToProps)(TeamSelector);

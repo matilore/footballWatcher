@@ -6,7 +6,7 @@ import YTMenu from '../YTMenu'
 import Spinner from '../Spinner'
 
 
-import * as actionCreators from '../../actions/index'
+import actionCreators from '../../actions/index'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
