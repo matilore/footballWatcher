@@ -29,7 +29,7 @@ function fetchVideos(term){
 }
 
 
-export function selectActiveTeam(team){
+function selectActiveTeam(team){
   return {
     type: "SELECT_ACTIVE_TEAM",
     payload: team

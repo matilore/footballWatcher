@@ -9,7 +9,7 @@ import { bindActionCreators } from 'redux'
 class YTFrame extends React.Component {
 
   _onPlay(){
-    this.refs.playerContainer.style.boxShadow = '0 0 100px 500px rgba(0, 0, 0, 0.9)'
+    this.refs.playerContainer.style.boxShadow = '0 0 100px 800px rgba(0, 0, 0, 0.9)'
     this.refs.playerContainer.style.zIndex = 1000
   }
 
@@ -20,8 +20,8 @@ class YTFrame extends React.Component {
 
   render() {
     const opts = {
-      height: '550',
-      width: '850',
+      height: '400',
+      width: '680',
       playerVars: { // https://developers.google.com/youtube/player_parameters
         autoplay: 0,
         controls: 1

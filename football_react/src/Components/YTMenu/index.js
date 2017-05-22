@@ -13,7 +13,7 @@ class YTMenu extends React.Component {
     return this.props.videos.list.slice(menuCounter, menuCounter + 10).map((video, index)=>{
       return (
         <ImgWrapper key={index}>
-          <img onClick={this.props.selectActiveVideo.bind(null, video)} style={{height: '100%', marginLeft: '10%'}} src={video.snippet.thumbnails.medium.url} alt=""/>
+          <img onClick={this.props.selectActiveVideo.bind(null, video)} style={{width: '100%',height: '100%'}} src={video.snippet.thumbnails.medium.url} alt=""/>
         </ImgWrapper>
       )
     })
@@ -38,18 +38,20 @@ const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-`
-
-const ImgWrapper = styled.div`
-  width: 20%;
-  height: 42%
+  margin-bottom: 4%;
 `
 
 const VideosWrapper = styled.div`
-  margin-top: 2%;
   width: 80%;
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
+`
+
+const ImgWrapper = styled.div`
+  flex-basis: 20%
+  height: auto;
+  flex-shrink:6;
 `
 
 const Button = styled.button`
@@ -60,6 +62,7 @@ const Button = styled.button`
   outline: none;
   color: ${(props) => props.color || 'black'};
   fontSize: 1em;
+  flex-shrink:1
 `
 
 

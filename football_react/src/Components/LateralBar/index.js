@@ -46,9 +46,9 @@ class LateralBar extends React.Component {
 
     if (this.props.user.teams) {
       return this.props.user.teams.map((team) =>{
-        let borderRight = this.props.videos.selectedTeam.name == team.name ? "4px solid red" : "none";
+        let borderRight = this.props.videos.selectedTeam.name === team.name ? "4px solid red" : "none";
         return (
-          <Team key={team.name} style={{borderRight, boxSizing: "content-box", paddingTop: '10%'}}>
+          <Team key={team.name} style={{borderRight, boxSizing: "content-box"}}>
             <img className='animated' onClick={this.props.chooseTeam.bind(null, team)} onDoubleClick={this.clickForRemove.bind(this)} src={URL + team.logo} alt={team.name} id={team.name} key={team.name} style={{maxHeight: '80%', maxWidth: "100%"}}/>
           </Team>
         )
@@ -62,9 +62,15 @@ class LateralBar extends React.Component {
 
     return (
       <Wrapper>
-        {this.showTeamsLogo()}
-        <Span onClick={()=> {this.props.history.push('/team')}} className="fa fa-plus-square-o fa-3x" aria-hidden="true"></Span>
-        <Logout history={this.props.history}/>
+        <TeamsWrapper>
+          <TeamsContainer>
+            {this.showTeamsLogo()}
+          </TeamsContainer>
+          <Span onClick={()=> {this.props.history.push('/team')}} className="fa fa-plus-square-o fa-3x" aria-hidden="true"></Span>
+        </TeamsWrapper>
+        <LogoutContainer>
+          <Logout history={this.props.history}/>
+        </LogoutContainer>
     </Wrapper>
     )
   }
@@ -82,24 +88,55 @@ function mapDispachToProps(dispatch){
 
 const Wrapper = styled.div`
   width: 6%;
-  height: 95vh;
+  maxHeight: 100vh;
   border-right: 1px solid red;
+  margin: 2% auto;
   display: flex;
   flexDirection: column;
   align-items: center;
-  margin: 1% auto;
+  justifyContent: space-between;
+`
+
+const TeamsWrapper = styled.div`
+  width:100%;
+  maxHeight: 100%;
+  display: flex;
+  flexDirection: column;
+  align-items: center;
+  justifyContent: space-between;
+  margin-left: 5%;
+`
+
+const TeamsContainer = styled.div`
+  display: flex;
+  maxHeight: 95vh;
+  overflow-y: auto;
+  flexDirection: column;
+  align-items: center;
+  margin-left: 10%;
+  padding-right: 5px;
 `
 
 const Team = styled.div`
-  width: 80%;
+  width: 90%;
   height: 50px;
-  margin-top: 20%;
+  min-height: 50px;
   display: flex;
   justify-content: center;
+  padding-right: 5%;
 `
 const Span = styled.span`
-  margin-top: 20px;
   color: rgb(4, 4, 35);
+  `
+
+  const LogoutContainer = styled.div`
+    maxHeight: 5vh;
+    width: 60%;
+    text-align: center;
+    color:rgb(226, 9, 103);
+    paddingTop: .5em;
+    margin-top: 0.5em;
+    border-top: 1px solid rgb(226, 9, 103);
   `
 
 export default connect(mapStateToProps, mapDispachToProps)(LateralBar);

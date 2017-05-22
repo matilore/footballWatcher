@@ -47,7 +47,7 @@ export default function teamSelector(state = initialState, action){
         return {
           ...state,
           teamCounter: {
-            value: ((state.teamCounter.value + action.state.leagues[state.leagueCounter.value].length) -1) % state.leagues[state.leagueCounter.value].length
+            value: ((state.teamCounter.value + state.leagues[state.leagueCounter.value].teams.length) -1) % state.leagues[state.leagueCounter.value].teams.length
           }
         }
       default:

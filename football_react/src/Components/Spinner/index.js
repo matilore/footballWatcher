@@ -11,12 +11,12 @@ class Spinner extends React.Component {
 
   render() {
 
-    let isSelectedTeamReady = Object.keys(this.props.selectedTeam).length == 0
+    let isSelectedTeamReady = Object.keys(this.props.selectedTeam).length === 0
     let sentence = isSelectedTeamReady ?
     "Please, select a team from the left" :
     "Now just choose one of the videos below";
 
-    let welcome = this.props.user.email != undefined ? `Hello ${this.props.user.email}` : undefined
+    let welcome = this.props.user.email !== undefined ? `Hello ${this.props.user.email}` : undefined
 
     if (welcome && sentence) {
       return (
