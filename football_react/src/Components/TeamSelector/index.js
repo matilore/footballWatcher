@@ -11,11 +11,6 @@ const URL = "http://localhost:4000"
 
 class TeamSelector extends React.Component {
 
-  constructor(props){
-    super(props)
-    console.log(props)
-  }
-
   componentWillMount(){
     this.props.fetchLeagues()
   }
@@ -47,15 +42,13 @@ class TeamSelector extends React.Component {
 
     axios.post("http://localhost:4000/users/addteam", data)
     .then(function(response){
-      console.log(response)
-      this.props.history.push('/dashboard')
+      this.props.history.push('/')
       this.props.chooseTeam(response.data.teamAdded)
     }.bind(this))
     .catch(function(error){console.log(error)})
   }
 
   render () {
-    console.log(this.props)
     return(
       <Wrapper>
         <MiniWrapper>

@@ -21,7 +21,7 @@ const Routes = () => (
         <Route path="/signup" component={Signup}/>
         <Route path="/login" component={Login}/>
         <PrivateRoute path="/team" component={TeamSelector}/>
-        <PrivateRoute path="/dashboard" component={Dashboard}/>
+        <PrivateRoute exact path="/" component={Dashboard}/>
       </div>
     </Router>
   </Provider>

@@ -4,3 +4,9 @@ export function authUser(user){
     payload: user
   }
 }
+
+export function logout(){
+  return {
+    type: "LOGOUT"
+  }
+}

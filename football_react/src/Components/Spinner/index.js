@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux'
 var Loader = require('halogen/PulseLoader');
 
 class Spinner extends React.Component {
-  
+
   render() {
 
     let isSelectedTeamReady = Object.keys(this.props.selectedTeam).length == 0

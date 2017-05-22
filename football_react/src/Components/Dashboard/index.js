@@ -24,6 +24,12 @@ class Dashboard extends React.Component {
     });
   }
 
+  componentDidUpdate(){
+    if (!(localStorage.getItem('token'))) {
+      this.props.history.push('/login')
+    }
+  }
+
 
   render () {
 

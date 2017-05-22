@@ -5,6 +5,9 @@ import actionCreators from '../../actions/index'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
+import Logout from '../Logout'
+
+
 const URL = "http://localhost:4000"
 
 
@@ -38,6 +41,7 @@ class LateralBar extends React.Component {
     event.target.style.opacity = "0.5";
   }
 
+
   showTeamsLogo(){
 
     if (this.props.user.teams) {
@@ -60,7 +64,8 @@ class LateralBar extends React.Component {
       <Wrapper>
         {this.showTeamsLogo()}
         <Span onClick={()=> {this.props.history.push('/team')}} className="fa fa-plus-square-o fa-3x" aria-hidden="true"></Span>
-      </Wrapper>
+        <Logout history={this.props.history}/>
+    </Wrapper>
     )
   }
 }
@@ -94,7 +99,7 @@ const Team = styled.div`
 `
 const Span = styled.span`
   margin-top: 20px;
+  color: rgb(4, 4, 35);
   `
-
 
 export default connect(mapStateToProps, mapDispachToProps)(LateralBar);
