@@ -46,8 +46,9 @@ class Login extends React.Component {
               inputRef={ref => {this.password = ref}}
               placeholder="password"
             />
-          <button ref="button" onClick={this.submit.bind(this)}>Login</button>
+          <Button ref="Button" onClick={this.submit.bind(this)}>Login</Button>
           </FormGroup>
+          <Button><a href="/signup">Go to the Signup</a></Button>
       </Wrapper>
     )
 
@@ -59,7 +60,9 @@ const Wrapper = styled.div`
   margin-top: 10%;
   margin-left: auto
   margin-right: auto
-
+`
+const Button = styled.button`
+  width: 100%;
 `
 
 export default Login;

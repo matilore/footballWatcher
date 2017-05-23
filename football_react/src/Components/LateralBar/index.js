@@ -12,6 +12,7 @@ const URL = "http://localhost:4000"
 
 
 class LateralBar extends React.Component {
+
   constructor(props){
     super(props)
     this.teams = props.user.teams
@@ -112,13 +113,11 @@ const TeamsContainer = styled.div`
   maxHeight: 95vh;
   overflow-y: auto;
   flexDirection: column;
-  align-items: center;
-  margin-left: 10%;
-  padding-right: 5px;
+  margin: auto;
 `
 
 const Team = styled.div`
-  width: 90%;
+  width: 50px;
   height: 50px;
   min-height: 50px;
   display: flex;

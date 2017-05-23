@@ -7,15 +7,24 @@ import {FormGroup, ControlLabel, FormControl } from 'react-bootstrap'
 
 class Signup extends React.Component {
 
+  constructor(){
+    super()
+    this.state = {error: ''}
+  }
+
 
   submit(){
+
+    if (this.email.value == '' || this.password.value == '' || this.r_password.value == '') {
+      this.setState({error: 'Plaese, fill all the input fields'})
+      return
+    }
+
 
     let user = {
       email: this.email.value,
       password: this.password.value
     }
-    console.log(user)
-
 
 
     axios.post('http://localhost:4000/signup',
@@ -54,8 +63,11 @@ class Signup extends React.Component {
               inputRef={ref => {this.r_password = ref}}
               placeholder="password confirmation"
             />
-            <button ref="button" onClick={this.submit.bind(this)}>Signup</button>
+          <Button ref="button" onClick={this.submit.bind(this)}>Signup</Button>
           </FormGroup>
+          <Button><a href="/login">Go to the Login</a></Button>
+          <Message>{this.state.error ? this.state.error : ""}</Message>
+
       </Wrapper>
 
     )
@@ -68,7 +80,14 @@ const Wrapper = styled.div`
   margin-top: 10%;
   margin-left: auto
   margin-right: auto
+`
 
+const Button = styled.button`
+  width: 100%;
+`
+const Message = styled.div`
+  color: red;
+  text-align: center;
 `
 
 export default Signup;
