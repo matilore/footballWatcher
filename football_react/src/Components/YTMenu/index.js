@@ -10,7 +10,7 @@ class YTMenu extends React.Component {
 
   renderVideos(){
     let menuCounter = this.props.videos.menuCounter;
-    return this.props.videos.list.slice(menuCounter, menuCounter + 10).map((video, index)=>{
+    return this.props.videos.list.slice(menuCounter, menuCounter + 5).map((video, index)=>{
       return (
         <ImgWrapper key={index}>
           <img onClick={this.props.selectActiveVideo.bind(null, video)} style={{width: '100%',height: '100%'}} src={video.snippet.thumbnails.medium.url} alt=""/>
@@ -34,7 +34,7 @@ class YTMenu extends React.Component {
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 30%
+  height: 15%
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;

@@ -126,6 +126,7 @@ const Team = styled.div`
 `
 const Span = styled.span`
   color: rgb(4, 4, 35);
+  margin-left: 5%;
   `
 
   const LogoutContainer = styled.div`

@@ -29,10 +29,10 @@ export default function videos(state = initialVideosState, action){
       selectedVideo: action.payload,
     }
   } else if(action.type === "NEXT_VIDEOS"){
-    if (state.menuCounter !== state.list.length - 10) {
+    if (state.menuCounter !== state.list.length - 5) {
       return {
           ...state,
-          menuCounter: state.menuCounter + 10
+          menuCounter: state.menuCounter + 5
       }
     } else {
       return state
@@ -41,7 +41,7 @@ export default function videos(state = initialVideosState, action){
     if (state.menuCounter !== 0) {
       return {
           ...state,
-          menuCounter: state.menuCounter - 10
+          menuCounter: state.menuCounter - 5
       }
     } else {
       return state
